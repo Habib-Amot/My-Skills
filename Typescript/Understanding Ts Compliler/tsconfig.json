@@ -1,0 +1,10 @@
+{
+    "compilerOptions":{
+        "rootDir": "./src", // the root folder to start searching for file 
+        "outDir": "./dst",  // the folder in which compiled files will be outputted or saved
+        "target":"es2016",  // contols the version of js that is used in output file
+        "module": "es2015",  // handles how import are being resolved
+        "noEmitOnError": true,  // tells the compiler not to emit JS code if there is an error during compilation
+        "lib": ["dom"]  // used to tell Typescript about the APIs that are considered to be allowed in the code
+    }
+}

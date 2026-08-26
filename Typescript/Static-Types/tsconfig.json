@@ -1,0 +1,9 @@
+{
+    "compilerOptions":{
+        "target": "es2018",
+        "rootDir": "./src",
+        "outDir": "./dst",
+        "declaration": true,   // this tells the compiler to generate decalarion file for each file compiled
+        "strictNullChecks": true
+    }
+}
