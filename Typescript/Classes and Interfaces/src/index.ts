@@ -122,6 +122,55 @@ console.log(btcPayment.pay("0x48dse38wa8jkse89w", "0x43asdnsjddsjdjj7ft", 0.5))
 
 interface PaymentMethod<T> {
     authorizer:T,
-    pay(): void
+    type: string,
+    pay(from: string, to: string, amount: number): string
 }
+
+class BTCAuthorizer{
+    
+}
+
+class BtcPaymentMethod implements PaymentMethod<BTCAuthorizer>{
+
+    constructor(public authorizer: BTCAuthorizer, public type:string){
+        this.authorizer = authorizer
+        this.type = type
+    }
+
+    pay(from: string, to:string, amount: number): string{
+        return `[${amount}BTC] sent from ${from} to ${to}`
+    }
+}
+
+// Unlike abstract classes, Interfaces dont contain methods, they just contain signatures for methods and provides interfaces that must be 
+// implemented by any class that uses them
+
+// a single class can implement mutiple interface 
+interface Human {
+    name: string,
+    age: number,
+    gender: string,
+
+}
+
+interface Female {
+    breastfeedBaby(babyName: string): void
+    giveBirth(): string
+}
+
+// when a class implments multiple interfaces, it must provide the methods and properties of both interface
+class Woman implements Human, Female{
+    constructor(public name: string, public age: number, public gender: string){
+        //
+    }
+
+    breastfeedBaby(babyName: string): void {
+        console.log(`I have finished breast feeding baby ${babyName}`)
+    }
+
+    giveBirth(): string {
+        return `i have given birth to a baby boy`
+    }
+}
+
 
